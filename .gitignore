@@ -1,0 +1,24 @@
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+
+# Django
+db.sqlite3
+/media/
+/logs/
+/conf/
+
+# Node
+node_modules/
+npm-debug.log
+package-lock.json
+
+# Virtualenv
+venv/
+.env
+
+# System
+.DS_Store
+Thumbs.db
