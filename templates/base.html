@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>BEERJA - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BEERJA">
+    <meta name="keywords" content="BEERJA">
+    <meta name="author" content="Maxim Usanov">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#000000">
+
+</head>
+
+<body>
+    <header>
+        <div class="container site-header">
+            <h1 class="logo"><a href="/">BEERJA</a></h1>
+            <nav>
+                <a class="header-menu-item" href="/">Главная</a>
+                <a class="header-menu-item" href="/catalog">Каталог</a>
+                <a class="header-menu-item" href="#">Контакты</a>
+            </nav>
+            {% if user.is_authenticated %}
+            <a class="header-avatar" href="{% url 'profile' %}">{{ user.username|slice:"0:1"|upper }}</a>
+            {% else %}
+            <a class="header-login" href="{% url 'login' %}">Войти</a>
+            {% endif %}
+        </div>
+    </header>
+
+    
+    {% block content %}{% endblock %}
+    
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-wrap">
+                <span> ©BEERJA {% now "Y" %}. Все права защищены.</span>
+                <span><a class="footer-politics" href="politics">Политика обработки персональных данных</a></span>
+                <span>By Maksim Usanov</span>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="{% static 'js/bundle.min.js' %}"></script>
+</body>
+
+</html>

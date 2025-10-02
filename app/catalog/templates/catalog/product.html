@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}{{ product.name }}{% endblock %}
+{% block content %}
+<section class="product">
+    <div class="container">
+        <a class="product_exit" href="{% url 'catalog:catalog' %}">Назад</a>
+        <div class="product_wrap">
+            <div class="product_img">
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            </div>
+            <div class="product_info">
+                <h2 class="product_info_title">{{ product.name }}</h2>
+                <p class="product_info_description">{{ product.description }}</p>
+                <div class="product_info_wrap">
+                    <div class="product_info_wrap-price">
+                        <span class="product_info_price"> {{ product.price }} ₽</span>
+                        <span class="product_info_old-price"> {{ product.old_price }} ₽</span>
+                    </div>
+                    <button class="btn product_info_btn">В корзину</button>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</section>
+{% endblock %}

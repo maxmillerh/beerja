@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Каталог{% endblock %}
+{% block content %}
+<section class="catalog">
+    <div class="container catalog_wrap">
+        <h2>Каталог</h2>
+        <div class="cards">
+            {% for product in products %}
+            <a href="{{ product.get_absolute_url }}" class="card">
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                <span class="card-title">{{ product.name }}</span>
+                <div class="card-price-wrap">
+                    <span class="card-price">{{ product.price }} ₽</span>
+                    {% if product.old_price %}
+                    <span class="card-old-price">{{ product.old_price }} ₽</span>
+                    {% endif %}
+                </div>
+                <div class="card-btn">Подробнее</div>
+            </a>
+            {% empty %}
+            <p>Товаров пока нет.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

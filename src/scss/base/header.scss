@@ -1,0 +1,73 @@
+
+header {
+    background: #161616;
+    color: white;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+.site-header {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.site-header .logo  {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    line-height: 24px;
+    margin: 0;
+}
+.site-header nav a {
+    margin-left: 20px;
+    color: white;
+    transition: opacity .3s;
+}
+.site-header nav a:hover {
+    opacity: 0.8;
+}
+.header-login{
+    border: solid 1px white;
+    line-height: 16px;
+    padding: 5px 10px;
+    font-weight: 400;
+    transition: all .4s ;
+}
+.header-login:hover{
+    background: white;
+    color: #161616;
+}
+.header-menu-item{
+    position: relative;
+    transition: all .4s;
+}
+.header-menu-item::after{
+    content: '';
+    position: absolute;
+    width: 0px;
+    height: 1px;
+    background-color: #fff;
+    left: 0;
+    bottom: -4px;
+    transition: width 0.4s ease; 
+}
+.header-menu-item:hover{
+    color: #fff;
+}
+.header-menu-item:hover::after{ 
+    width: 100%;
+}
+
+.header-avatar{
+    border-radius: 50%;
+    border: solid 1px white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    line-height: 100%;
+}

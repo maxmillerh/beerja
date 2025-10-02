@@ -1,0 +1,12 @@
+/* base_bundle.scss */
+@use 'base/base' as *;
+@use 'base/header' as *;
+@use 'base/footer' as *;
+
+@use 'page/index' as *;
+@use 'page/product' as *;
+@use 'page/catalog' as *;
+@use 'page/autorization' as *;
+@use 'page/profile' as *;
+
+@use 'components/card' as *;

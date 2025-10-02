@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Авторизация{% endblock %}
+{% block content %}
+<section class="login autorization">
+  <div class="container">
+    <div class="autorization_wrap">
+      <h2 class="autorization_title">Авторизация</h2>
+      <form class="autorization_form" method="post">
+        {% csrf_token %}
+        {{ form.username.label_tag }}
+        {{ form.username }}
+        {{ form.password.label_tag }}
+        {{ form.password }}
+
+        <button class="btn autorization_btn" type="submit">Войти</button>
+      </form>
+      <p class="autorization_link">Нет аккаунта? <a href="{% url 'register' %}">Создать</a></p>
+    </div>
+  </div>
+</section>
+{% endblock %}

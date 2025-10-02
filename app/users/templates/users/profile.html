@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Профиль пользователя{% endblock %}
+
+{% block content %}
+<section class="profile">
+    <div class="container">
+        <div class="profile_wrap">
+            {% if user.is_authenticated %}
+            <h2>Профиль пользователя: {{ user.username }}</h2>
+            <div class="profile_info">
+                <p><strong>Имя:</strong> {{ user.first_name|default:"Не указано" }}</p>
+                <p><strong>Фамилия:</strong> {{ user.last_name|default:"Не указано" }}</p>
+                <p><strong>Электронная почта:</strong> {{ user.email|default:"Не указано" }}</p>
+                <p><strong>Дата регистрации:</strong> {{ user.date_joined|date:"d.m.Y H:i" }}</p>
+            </div>
+            <div class="profile_actions">
+                <a class="btn" href="/">Редактировать профиль</a>
+                <form method="post" action="{% url 'logout' %}" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn">Выйти</button>
+                </form>
+            </div>
+            {% else %}
+            <h2>Доступ запрещён</h2>
+            <p>Пожалуйста, <a href="{% url 'login' %}">войдите</a>, чтобы просмотреть профиль.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}
