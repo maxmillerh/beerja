@@ -1,0 +1,36 @@
+.edit-profile {
+    display: flex;
+    flex-grow: 1;
+    margin-top: 60px;
+
+    &_form{
+        width: 422px;
+    }
+
+
+    input {
+        width: 100%;
+        padding: 10px 5px 10px 20px;
+        border: 1px solid #5a5a5a;
+        border-radius: 1px;
+        font-size: 20px;
+        margin-bottom: 20px;
+
+        &:last-of-type {
+            margin-bottom: 20px;
+        }
+
+        &:focus {
+            outline: none;
+
+        }
+    }
+
+    label {
+        margin-bottom: 3px;
+    }
+
+    .profile_actions{
+        margin-top: 20px;
+    }
+}

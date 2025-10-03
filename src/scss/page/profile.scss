@@ -2,6 +2,7 @@
     margin-top: 60px;
     display: flex;
     flex-grow: 1;
+    margin-bottom: 50px;
     &_wrap{
 
     }
@@ -10,5 +11,13 @@
         display: flex;
         gap: 10px;
         align-items: center;
+    }
+
+    &_avatar{
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 2px solid #333;
+
     }
 }

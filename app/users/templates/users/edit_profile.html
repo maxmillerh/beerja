@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Редактировать профиль{% endblock %}
+
+{% block content %}
+<section class="edit-profile">
+    <div class="container">
+        <div class="profile_wrap">
+            {% if user.is_authenticated %}
+                <h2>Редактировать профиль: {{ user.username }}</h2>
+                <form enctype="multipart/form-data" method="post" class="edit-profile_form">
+                    {% csrf_token %}
+
+                        {{ form.avatar.label_tag }}
+                        {{ form.avatar }}
+                        {% if form.avatar.errors %}
+                            <span class="error">{{ form.avatar.errors|join:", " }}</span>
+                        {% endif %}
+                        
+                   
+                    
+                    
+                        {{ form.first_name.label_tag }}
+                        {{ form.first_name }}
+                        {% if form.first_name.errors %}
+                            <span class="error">{{ form.first_name.errors|join:", " }}</span>
+                        {% endif %}
+                    
+                        {{ form.last_name.label_tag }}
+                        {{ form.last_name }}
+                        {% if form.last_name.errors %}
+                            <span class="error">{{ form.last_name.errors|join:", " }}</span>
+                        {% endif %}
+                    
+                        {{ form.email.label_tag }}
+                        {{ form.email }}
+                        {% if form.email.errors %}
+                            <span class="error">{{ form.email.errors|join:", " }}</span>
+                        {% endif %}
+
+                       
+
+                    {% if form.non_field_errors %}
+                        <div class="form-errors">
+                            {{ form.non_field_errors|join:", " }}
+                        </div>
+                    {% endif %}
+                    <div class="profile_actions">
+                        <button type="submit" class="btn">Сохранить изменения</button>
+                        <a class="btn" href="{% url 'profile' %}">Отмена</a>
+                    </div>
+                </form>
+            {% else %}
+                <h2>Доступ запрещён</h2>
+                <p>Пожалуйста, <a href="{% url 'login' %}">войдите</a>, чтобы редактировать профиль.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}
